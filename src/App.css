@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+	background-color: #e8e8e8;
+	margin: 0;
+	padding: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+
+}
+
+nav {
+	font-size: 23px;
+	width: 100%;
+	background-color: white;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 15px 0;
+	width: 340px;
+	border-radius: 20px;
+	color: #b0bdcb;
+	box-shadow: 0 5px 10px 0 rgba(14, 42, 90, 0.365);
+	z-index: 1;
+}
+
+.link {
+	color: #b0bdcb;
+	border: none;
+	background-color: #12123a00;
+	font-size: 25px;
+	cursor: pointer;
+}
+
+.linkActive {
+	color: #725efe;
+	border: none;
+	background-color: #12123a00;
+	font-size: 25px;
+	cursor: pointer;
+}
+
+.link:hover {
+	color: #725efe;
+}
+
+.music-player {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+	max-height: 700px;
+	max-width: 350px;
+}
+
+.container-progressBar-timeDisplay {
+	width: 100%;
+	max-width: 330px;
+}
+
+.timeDisplay {
+	display: flex;
+	justify-content: space-between;
+	color: #a5b3c2;
+	font-size: 15px;
+}
+
+
+.progressBar {
+    margin: 0px auto;
+    width: 100%;
+    height: 6px;
+    border-radius: 5px;
+    background-color: #bfcdda;
+    cursor: pointer;
+	margin-bottom: 10px;
+
+}
+
+.progress {
+    background: #725efe;
+    height: 100%;
+    width: 0%;
+    border-radius: 5px;
+    transition: width 0.1s linear;
+}
+
+
+/* BUTTONS ********************************************************************************************************************************************/
+.container-buttons {
+	width: 250px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.box-playPause2 {
+	font-size: 23px;
+	color: #725efe;
+	width: 70px;
+	height: 70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	cursor: pointer;
+	box-shadow: 0 15px 25px -4px rgba(0, 0, 0, 0.5), inset 0 -3px 4px -1px rgba(0, 0, 0, 0.2), 0 -10px 15px -1px rgba(255, 255, 255, 0.6), inset 0 3px 4px -1px rgba(255, 255, 255, 0.2), inset 0 0 5px 1px rgba(255, 255, 255, 0.8), inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
+	border-radius: 68.8px;
+	background: #eaeaea;
+	text-shadow: 1px 1px 1px #ffffff;
+}
+
+
+
+.box-playPause {
+	font-size: 23px;
+	color: #725efe;
+	width: 70px;
+	height: 70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	cursor: pointer;
+	box-shadow: 0 10px 15px -4px rgba(0, 0, 0, 0.313), inset 0 -3px 4px -1px rgba(0, 0, 0, 0.2), 0 -10px 15px -1px rgba(255, 255, 255, 0.6), inset 0 3px 4px -1px rgba(255, 255, 255, 0.2), inset 0 0 5px 1px rgba(255, 255, 255, 0.8), inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
+	background: #eaeaea;
+	text-shadow: 1px 1px 1px #ffffff;
+}
+
+.icon-playPause {
+	margin-left: 5px;
+}
+
+.prev {
+margin-right: 5px;
+}
+
+.next {
+	margin-left: 5px;
+}
+
+
+.container-btnPrevNext {
+	text-shadow: 1px 1px 1px #ffffff;
+	font-size: 20px;
+	cursor: pointer;
+	color: #a2b0be;
+	box-shadow: 0 15px 25px -4px rgba(0, 0, 0, 0.5), inset 0 -3px 4px -1px rgba(0, 0, 0, 0.2), 0 -10px 15px -1px rgba(255, 255, 255, 0.6), inset 0 3px 4px -1px rgba(255, 255, 255, 0.2), inset 0 0 5px 1px rgba(255, 255, 255, 0.8), inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
+	border-radius: 68.8px;
+	width: 50px;
+	height: 50px;
+	background: #eaeaea;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container-btnPrevNext:active {
+	color: #725efe;
+	box-shadow: 0 10px 15px -4px rgba(0, 0, 0, 0.313), inset 0 -3px 4px -1px rgba(0, 0, 0, 0.2), 0 -10px 15px -1px rgba(255, 255, 255, 0.6), inset 0 3px 4px -1px rgba(255, 255, 255, 0.2), inset 0 0 5px 1px rgba(255, 255, 255, 0.8), inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
+}
+
+  /* POSTER */
+
+.poster {
+	width: 100%;
+	max-width: 330px;
+	height: 330px;
+	margin-top: 40px;
+	border-radius: 40px;
+	box-shadow: 0 15px 25px -4px rgba(0, 0, 0, 0.5), inset 0 -3px 4px -1px rgba(0, 0, 0, 0.2), 0 -10px 15px -1px rgba(255, 255, 255, 0.6), inset 0 3px 4px -1px rgba(255, 255, 255, 0.2), inset 0 0 5px 1px rgba(255, 255, 255, 0.8), inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
+}
+
+.box-loopEndMuted {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 330px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+
+.icon-loop {
+	color: #b0bdcb;
+	font-size: 20px;
+	cursor: pointer;
+	
+}
+
+.icon-loopColor {
+	color: #725efe;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.singer {
+	color: #725efe;
+	font-weight: 500;
+	font-size: 17px;
+	margin: 0;
+	padding: 0;
+	
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+.song-name {
+	color: #12123a;
+	font-weight: 500;
+	font-size: 23px;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	margin-top: 25px;
+}
+
+
+/* playlist ***********************************************/
+
+.container_playlist {
+	width: 370px;
+	height: 100vh;
+	position: fixed;
+	background-color: #e8e8e8;
+	margin-top: 20px;
+	display: block;
+}
+
+.container_playlist2 {
+	width: 370px;
+	height: 100vh;
+	position: fixed;
+	background-color: #e8e8e8;
+	margin-top: 20px;
+	display: none;
+}
+
+.box_song {
+	display: flex;
+	align-items: center;
+	padding: 8px 20px;
+    padding-left: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box_song:hover {
+	background-color: #eff3f6;
+}
+
+.playList_poster {
+	width: 40px;
+	height: 40px;
+	border-radius: 5px;
+}
+
+.playList_box_songNameEndSinger {
+	margin-left: 15px;
+	font-size: 15px;
+}
+
+.playList_songName {
+	color: #12123a;
+	
+}
+
+.playList_singer {
+	color: #b0bdcb;
+}
+
+.playList_songTime {
+	margin-left: auto;
+	color: #b0bdcb;
+}
+
+
+@media all and (max-width: 500px) {
+	.music-player {
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	nav {
+		width: 100%;
+		border-radius: 0;
+	}
+
+	.container_playlist {
+		width: 100%;
+		margin-bottom: 10px;
+		padding: 10px;
+	}
+}
