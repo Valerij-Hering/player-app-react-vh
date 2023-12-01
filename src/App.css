@@ -18,7 +18,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100vh;
-
+	
 }
 
 nav {
@@ -65,6 +65,7 @@ nav {
 	height: 100vh;
 	max-height: 700px;
 	max-width: 350px;
+	overflow: hidden;
 }
 
 .container-progressBar-timeDisplay {
@@ -307,4 +308,19 @@ margin-right: 5px;
 		margin-bottom: 10px;
 		padding: 10px;
 	}
+
+	.singer {
+		margin-bottom: 5px;
+	}
+	
+	.song-name {
+		color: #12123a;
+		font-weight: 500;
+		font-size: 23px;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		margin-top: 10px;
+	}
+	
 }
