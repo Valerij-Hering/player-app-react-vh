@@ -16,7 +16,7 @@ const Player = () => {
   const [muted, setMuted] = useState(false);
   const [loadingPoster, setLoadingPoster] = useState(false);
 
-  const [playList, setPlayList] = useState(data);
+  const [playList] = useState(data);
   const [selectedSong, setSelectedSong] = useState(0);
   const [showPlaylist, setShowPlaylist] = useState(false);
 
