@@ -177,6 +177,10 @@ margin-right: 5px;
 
   /* POSTER */
 
+.loading-poster {
+	position: fixed;
+}
+
 .poster {
 	width: 100%;
 	max-width: 330px;
