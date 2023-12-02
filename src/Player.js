@@ -1,23 +1,21 @@
-import { useRef, useState, useEffect, useCallback } from "react"
+import { useRef, useState, useEffect, useCallback } from "react";
 import data from "./data";
 import React from 'react';
 
-
-
 const Player = () => {
-
     const refAudio = useRef();
-    const[paused, setPaused] = useState(true);
+    const [paused, setPaused] = useState(true);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const [looping, setLooping] = useState(false);
     const [muted, setMuted] = useState(false);
+    const [loadingPoster, setLoadingPoster] = useState(false);
 
     const toggleMute = () => {
         setMuted(!muted);
     };
 
-    const handlepiay = () => {
+    const handlePlay = () => {
         setPaused(!paused);
         paused ? refAudio.current.play() : refAudio.current.pause();
     }
@@ -28,6 +26,10 @@ const Player = () => {
 
     const handleLoadedMetadata = () => {
         setDuration(refAudio.current.duration);
+    };
+
+    const handlePosterLoad = () => {
+        setLoadingPoster(false);
     };
 
     useEffect(() => {
@@ -63,9 +65,11 @@ const Player = () => {
     };
 
     const [song, setSong] = useState(0);
-    const {path, poster, songName, singer} = data[song];
+    const { path, poster, songName, singer } = data[song];
 
     useEffect(() => {
+        setLoadingPoster(true);  // Устанавливаем флаг загрузки перед загрузкой нового постера
+
         if (!paused) {
             refAudio.current.play();
         } else {
@@ -118,8 +122,8 @@ const Player = () => {
     }, [looping, nextSong]);
 
     const toggleLoop = () => {
-        setLooping(!looping); // Step 2
-        refAudio.current.loop = !looping; // Step 4
+        setLooping(!looping);
+        refAudio.current.loop = !looping;
     };
 
     const formatTime = (time) => {
@@ -130,77 +134,66 @@ const Player = () => {
 
     return (
         <div className="music-player">
-            
-                <audio className="audio"
+            <audio
+                className="audio"
                 ref={refAudio}
                 src={`${path}.mp3`}
                 loop={looping}
                 muted={muted}
-                >
-                </audio>
+            >
+            </audio>
 
-        <img className="poster" src={`${poster}.jpeg`} alt="poster"/>
-        <div>
-            <p className="song-name">{songName}</p>
-            <p className="singer">{singer}</p>
-        </div>
-        <div className="container-progressBar-timeDisplay">
-            <div className="progressBar" onClick={handleProgressBarClick}>
-                <div className="progress" style={{ width: `${calculateProgress()}%` }}></div>
-            </div>
-            <div className="timeDisplay">
-                <span>{formatTime(currentTime)}</span>  <span>{formatTime(duration)}</span>
-            </div>
-        </div>
-        <div className="container-buttons">
-            <div onClick={prevSong} className="container-btnPrevNext">
-                <i className="fas fa-backward icon-prevNext prev"></i>
-            </div>
+            {loadingPoster && (
+                <div className="loading-poster">
+                 
+                </div>
+            )}
 
-            <div onClick={handlepiay} className={ paused ? "box-playPause2" : "box-playPause"}>
-                { paused ? <i className="fas fa-play icon-playPause"></i> : <i className="fas fa-pause icon-playPause2"></i>}
+            <img
+                className={`poster ${loadingPoster ? 'hidden' : ''}`}
+                src={`${poster}.jpeg`}
+                alt="poster"
+                onLoad={handlePosterLoad}
+            />
+
+            <div>
+                <p className="song-name">{songName}</p>
+                <p className="singer">{singer}</p>
             </div>
 
-            <div onClick={nextSong} className="container-btnPrevNext">
-                <i className="fas fa-forward icon-prevNext next"></i>
+            <div className="container-progressBar-timeDisplay">
+                <div className="progressBar" onClick={handleProgressBarClick}>
+                    <div className="progress" style={{ width: `${calculateProgress()}%` }}></div>
+                </div>
+                <div className="timeDisplay">
+                    <span>{formatTime(currentTime)}</span>  <span>{formatTime(duration)}</span>
+                </div>
             </div>
-        </div>
+
+            <div className="container-buttons">
+                <div onClick={prevSong} className="container-btnPrevNext">
+                    <i className="fas fa-backward icon-prevNext prev"></i>
+                </div>
+
+                <div onClick={handlePlay} className={paused ? "box-playPause2" : "box-playPause"}>
+                    {paused ? <i className="fas fa-play icon-playPause"></i> : <i className="fas fa-pause icon-playPause2"></i>}
+                </div>
+
+                <div onClick={nextSong} className="container-btnPrevNext">
+                    <i className="fas fa-forward icon-prevNext next"></i>
+                </div>
+            </div>
+
             <div className="box-loopEndMuted">
-                <div onClick={toggleLoop} className={ looping ? "icon-loopColor" : "icon-loop"}>
+                <div onClick={toggleLoop} className={looping ? "icon-loopColor" : "icon-loop"}>
                     <ion-icon name="repeat-outline"></ion-icon>
                 </div>
-                <div onClick={toggleMute} className={ muted ? "icon-loopColor" : "icon-loop"}>
+                <div onClick={toggleMute} className={muted ? "icon-loopColor" : "icon-loop"}>
                     {muted ? <ion-icon name="volume-mute-outline"></ion-icon> : <ion-icon name="volume-high-outline"></ion-icon>}
                 </div>
             </div>
-
-            {/* <div className={ showPlayList ? "container_playlist" : "container_playlist2"}>
-            {playList.map(element => {
-                const { songName, poster, singer, timeSong } = element;
-                return (
-                    <div className="box_song">
-                        <img className="playList_poster" src={`${poster}.jpeg`} alt="poster"/>
-                        <div className="playList_box_songNameEndSinger">
-                            <p className="playList_songName">{songName}</p>
-                            <p className="playList_singer">{singer}</p>
-                        </div>
-                        <p className="playList_songTime">{timeSong}</p>
-                    </div>
-                )
-            })}
-        </div>
-            <nav>
-                <button to="/options" className={"link"}><ion-icon name="options-outline"></ion-icon></button>
-                <button to="/" onClick={showPlayer} className="link"><ion-icon name="play-outline"></ion-icon></button>
-                <button onClick={toggleshowPlayList} to="playlist" className={ showPlayList ? "linkActive" : "link"}><ion-icon name="list-outline"></ion-icon></button>
-            </nav> */}
         </div>
     )
 }
 
-export default Player
-
-
-
-
-
+export default Player;
