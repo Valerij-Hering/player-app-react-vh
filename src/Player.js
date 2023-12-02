@@ -1,8 +1,9 @@
 
 import { useRef, useState, useEffect, useCallback } from "react";
-import Playlist from "./Playlist";
+
 import data from "./data";
 import React from 'react';
+import Playlist from "./MyPlaylist";
 
 
 
@@ -205,6 +206,7 @@ useEffect(() => {
             {showPlaylist ? <ion-icon name="chevron-down-outline"></ion-icon> : <ion-icon name="chevron-up-outline"></ion-icon>}
         </div>
       <Playlist playList={playList} onSongClick={playSelectedSong} />
+
       </div>
     </div>
   );
