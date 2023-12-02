@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@400;500;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:wght@100;200;300;400;500;600;700;800;900&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ body {
 	background-color: #e8e8e8;
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
+	
 }
 
 .App {
@@ -22,40 +22,6 @@ body {
 	
 }
 
-nav {
-	font-size: 23px;
-	width: 100%;
-	background-color: white;
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	padding: 15px 0;
-	width: 340px;
-	border-radius: 20px;
-	color: #b0bdcb;
-	box-shadow: 0 5px 10px 0 rgba(14, 42, 90, 0.365);
-	z-index: 1;
-}
-
-.link {
-	color: #b0bdcb;
-	border: none;
-	background-color: #12123a00;
-	font-size: 25px;
-	cursor: pointer;
-}
-
-.linkActive {
-	color: #725efe;
-	border: none;
-	background-color: #12123a00;
-	font-size: 25px;
-	cursor: pointer;
-}
-
-.link:hover {
-	color: #725efe;
-}
 
 .music-player {
 	display: flex;
@@ -237,13 +203,51 @@ margin-right: 5px;
 
 /* playlist ***********************************************/
 
+.btn-show_playlist {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #a5b3c2;
+	
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.btn-show_playlist p {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	margin-top: -5px;
+	font-family: 'Rajdhani', sans-serif;
+	font-weight: 600;
+}
+
 .container_playlist {
 	width: 370px;
-	height: 100vh;
+	height: 85vh;
 	position: fixed;
 	background-color: #e8e8e8;
-	margin-top: 20px;
-	display: block;
+	border-top-left-radius: 40px;
+	border-top-right-radius: 40px;
+	bottom: 0px;
+	transition: 0.3s;
+	box-shadow: 0 5px 10px 0 rgba(14, 42, 90, 0.365);
+	
+}
+
+.btn-show_playlist2 {
+	padding: 10px 0;
+}
+
+.playlist {
+	height: 580px;
+	overflow-y: auto;
+    flex-wrap: nowrap;
+}
+
+.playlist::-webkit-scrollbar {
+    display: none; 
 }
 
 .container_playlist2 {
@@ -251,8 +255,9 @@ margin-right: 5px;
 	height: 100vh;
 	position: fixed;
 	background-color: #e8e8e8;
-	margin-top: 20px;
-	display: none;
+
+	bottom: -1000px;
+	transition: 0.3s;
 }
 
 .box_song {
@@ -281,12 +286,12 @@ margin-right: 5px;
 	font-size: 15px;
 }
 
-.playList_songName {
+.playlist-song-name {
 	color: #12123a;
 	
 }
 
-.playList_singer {
+.playlist-singer {
 	color: #b0bdcb;
 }
 
