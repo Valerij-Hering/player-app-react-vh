@@ -11,7 +11,7 @@ body {
 	background-color: #e8e8e8;
 	margin: 0;
 	padding: 0;
-	
+	overflow: hidden;
 }
 
 .App {
@@ -225,12 +225,12 @@ margin-right: 5px;
 
 .container_playlist {
 	width: 370px;
-	height: 85vh;
+	height: 70vh;
 	position: fixed;
 	background-color: #e8e8e8;
 	border-top-left-radius: 40px;
 	border-top-right-radius: 40px;
-	bottom: 0px;
+	bottom: -10px;
 	transition: 0.3s;
 	box-shadow: 0 5px 10px 0 rgba(14, 42, 90, 0.365);
 	
