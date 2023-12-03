@@ -194,7 +194,7 @@ useEffect(() => {
           <ion-icon name="repeat-outline"></ion-icon>
         </div>
         <div className="btn-show_playlist" onClick={togglePlaylist}>
-            {showPlaylist ? <ion-icon name="chevron-down-outline"></ion-icon> : <ion-icon name="chevron-up-outline"></ion-icon>}
+            <ion-icon name="chevron-up-outline"></ion-icon>
         </div>
         <div onClick={toggleMute} className={muted ? "icon-loopColor" : "icon-loop"}>
           {muted ? <ion-icon name="volume-mute-outline"></ion-icon> : <ion-icon name="volume-high-outline"></ion-icon>}
@@ -203,7 +203,7 @@ useEffect(() => {
 
       <div className={ showPlaylist ? "container_playlist" :  "container_playlist2"}>
       <div className="btn-show_playlist btn-show_playlist2" onClick={togglePlaylist}>
-            {showPlaylist ? <ion-icon name="chevron-down-outline"></ion-icon> : <ion-icon name="chevron-up-outline"></ion-icon>}
+            <ion-icon name="chevron-down-outline"></ion-icon>
         </div>
       <Playlist playList={playList} onSongClick={playSelectedSong} />
 
