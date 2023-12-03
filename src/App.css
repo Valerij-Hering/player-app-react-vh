@@ -244,7 +244,7 @@ margin-right: 5px;
 	height: 580px;
 	overflow-y: auto;
     flex-wrap: nowrap;
-	padding-bottom: 190px;
+	padding-bottom: 150px;
 }
 
 .playlist::-webkit-scrollbar {
